@@ -70,4 +70,15 @@ public class CustomerService {
         log.debug("Request to delete Customer : {}", id);
         customerRepository.deleteById(id);
     }
+    
+    /**
+    * Get all the customers by First Name.
+    *
+    * @return the list of entities.
+    */
+    @Transactional(readOnly = true)
+    public List<Customer> findCustomerByFName(String nameToFind) {
+        log.debug("Request to get all Customers by FName");
+        return customerRepository.findCustomerByFName(nameToFind);
+    }
 }

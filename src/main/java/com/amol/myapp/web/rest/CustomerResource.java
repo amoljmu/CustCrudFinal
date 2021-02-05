@@ -108,6 +108,17 @@ public class CustomerResource {
         Optional<Customer> customer = customerService.findOne(id);
         return ResponseUtil.wrapOrNotFound(customer);
     }
+    
+    /**
+     * {@code GET  /customers/fName} : get all the customers by first name.
+     *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of customers in body.
+     */
+    @GetMapping("/customers/fName/{fName}")
+    public List<Customer> getCustomerByFname(@RequestParam String fName) {
+        log.debug("REST request to get Customer By FName: {}", fName);
+        return customerService.findCustomerByFName(fName);
+    }
 
     /**
      * {@code DELETE  /customers/:id} : delete the "id" customer.
