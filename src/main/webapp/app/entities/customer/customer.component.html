@@ -2,7 +2,7 @@
     <h2 id="page-heading">
         <span>Customers</span>
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-customer" [routerLink]="['/customer/new']">
+        <button *jhiHasAnyAuthority="'ROLE_ADMIN'" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-customer" [routerLink]="['/customer/new']">
             <fa-icon icon="plus"></fa-icon>
             <span>
             Create a new Customer
